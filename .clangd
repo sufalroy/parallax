@@ -1,0 +1,25 @@
+CompileFlags:
+  CompilationDatabase: .
+  Add:
+    - "-std=c++23"
+    - "-fms-compatibility"
+    - "-fdelayed-template-parsing"
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add:
+      [
+        bugprone-*,
+        cppcoreguidelines-*,
+        modernize-*,
+        performance-*,
+        portability-*,
+        readability-*,
+      ]
+    Remove:
+      [
+        cppcoreguidelines-avoid-magic-numbers,
+        readability-magic-numbers,
+        modernize-use-trailing-return-type,
+      ]

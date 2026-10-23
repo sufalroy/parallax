@@ -1,0 +1,19 @@
+{
+    "cmake.useCMakePresets": "always",
+    "cmake.configureOnOpen": true,
+    "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.path": "clangd",
+    "clangd.arguments": [
+    "--header-insertion=never",
+    "--background-index",
+    "--query-driver=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe"
+  ]
+    "files.watcherExclude": {
+        "**/build/**": true
+    },
+    "search.exclude": {
+        "build": true,
+        "compile_commands.json": true
+    }
+}
