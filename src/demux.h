@@ -52,6 +52,9 @@ struct InputCloser {
             irq->closing = true; // let TEARDOWN through even if stop was requested
         }
         avformat_close_input(&ctx);
+        if (irq != nullptr) {
+            irq->closing = false; // Interrupt can serve the next connection
+        }
     }
 };
 

@@ -129,8 +129,6 @@ Result<void> read_packet(AVFormatContext& ctx, AVPacket& pkt) {
     const AVIOInterruptCB& icb = ctx.interrupt_callback;
     int rc;
     while ((rc = av_read_frame(&ctx, &pkt)) == AVERROR(EAGAIN)) {
-        // Nothing to deliver yet (e.g. an RTCP packet was consumed). Same pause as ffplay/ffmpeg,
-        // and the stop flag is checked here because no blocking I/O happens in this loop.
         if (icb.callback != nullptr && icb.callback(icb.opaque) != 0) {
             return std::unexpected(make_error("av_read_frame", AVERROR_EXIT));
         }
